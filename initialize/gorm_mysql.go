@@ -9,14 +9,12 @@ import (
 
 	"github.com/0014526/gin-demo/util/setting"
 )
-var (
-	db *gorm.DB
-)
+var	DB *gorm.DB
 
 
 func InitGormMysql() {
 	var err error
-	db, err = gorm.Open(setting.MysqlSetting.Type, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
+	DB, err = gorm.Open(setting.MysqlSetting.Type, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		setting.MysqlSetting.User,
 		setting.MysqlSetting.Password,
 		setting.MysqlSetting.Host,
@@ -24,11 +22,14 @@ func InitGormMysql() {
 	if err != nil {
 		log.Fatalf("model.Setup err: %v", err)
 	}
-	db.DB().SetMaxIdleConns(10)
-	db.DB().SetMaxOpenConns(100)
+	DB.DB().SetMaxIdleConns(10)
+	DB.DB().SetMaxOpenConns(100)
 }
 
 func CloseDB() {
-	defer db.Close()
+	defer DB.Close()
 }
 
+func GetDB() *gorm.DB{
+	return DB
+}
