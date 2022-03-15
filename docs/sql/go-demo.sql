@@ -1,11 +1,7 @@
-
-
-
-
 DROP TABLE IF EXISTS `tbl_user`;
 create table tbl_user (
                           `id` int(11) not null auto_increment,
-                          `user_id` int(11) not null default 0,
+                          `user_id` bigint(32) not null default 0,
                           `user_name` varchar(50) not null,
                           `user_nike` varchar(50) not null,
                           `create_at` timestamp not null default current_timestamp,

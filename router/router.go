@@ -2,6 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+
 	"github.com/0014526/gin-demo/api/v1/r"
 	"github.com/0014526/gin-demo/api/v1/w"
 )
@@ -19,6 +20,8 @@ func InitRouter() *gin.Engine {
 		w1:=v1.Group("/w")
 		{
 			w1.POST("/CreateUser",w.CreateUserHandle)
+			w1.POST("/DeleteUser",w.DeleteUserHandle)
+			w1.POST("/UpdateUser",w.UpdateUserById)
 		}
 	}
 
