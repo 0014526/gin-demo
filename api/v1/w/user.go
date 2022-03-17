@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-
 	"github.com/sony/sonyflake"
 
 	"github.com/0014526/gin-demo/dao/custom"
@@ -35,8 +34,12 @@ func CreateUserHandle(context *gin.Context) {
 	}
 }
 
+// 删除user
 func DeleteUserHandle(context *gin.Context) {
 	id:=context.PostForm("id")
+
+	// id1 := com.StrTo(context.Param("id1")).MustInt()
+	// log.Println(id1)
 	err := custom.DeleteUser(id)
 	if err != nil {
 		context.JSON(http.StatusOK,gin.H{"error":err.Error()})
@@ -45,6 +48,7 @@ func DeleteUserHandle(context *gin.Context) {
 	}
 }
 
+// 修改user
 func UpdateUserById(context *gin.Context)  {
 	id:=context.Query("id")
 	user:=model.User{}

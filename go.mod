@@ -9,4 +9,9 @@ require (
 	gopkg.in/ini.v1 v1.66.4
 )
 
-require github.com/stretchr/testify v1.7.0 // indirect
+require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/gomodule/redigo v1.8.8
+	github.com/unknwon/com v1.0.1
+	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+)

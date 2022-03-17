@@ -12,9 +12,11 @@ import (
 func init() {
 	setting.InitCofig()
 	initialize.InitGormMysql()
+	initialize.InitRedis()
 }
 
 func main() {
 	run := router.InitRouter()
+	run.MaxMultipartMemory=setting.ServerSetting.MaxMultipartMemory
 	run.Run(fmt.Sprintf(":%d",setting.ServerSetting.HttpPort))
 }

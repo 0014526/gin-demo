@@ -16,6 +16,7 @@ type ServerConfig struct {
 	HttpPort     int
 	ReadTimeout  time.Duration
 	WriteTimeout time.Duration
+	MaxMultipartMemory int64
 }
 var ServerSetting = &ServerConfig{}
 
